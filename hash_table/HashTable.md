@@ -25,3 +25,7 @@ Some basic feature specs of hash table:
 + Should have a method to get the current load factor: `load_factor = num_of_entries / num_of_buckets`
   1. Should have a threashold of load factor(max, min)
   2. When it is exceeded, puts out warning for now: TEMPORARY, ideally should be some dynamically resizing mechanism
+
++ First iteration limitations:
+  1. cannot take any arguments
+  2. will always be initialized with empty key/value
