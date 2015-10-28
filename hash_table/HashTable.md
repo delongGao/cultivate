@@ -8,7 +8,7 @@ Some basic feature specs of hash table:
 
 + Supported operations: 
   
-  1. Insert
+  1. Insert: first use key to get the internal index, and then use a specific way to insert value at the index
   2. Look up: aims to be constant
   3. Delete
 
