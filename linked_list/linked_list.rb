@@ -20,7 +20,7 @@ class LinkedList
 
   def to_s
     iterator { |node|
-      print " #{node.data} "
+      node.next.nil? ? puts("end") : print("#{node.data} >> ")
     }
   end
 
@@ -43,7 +43,17 @@ class LinkedList
   end
 
   def delete value
-        
+    previous_node = nil
+    # current_node = head
+    iterator { |node|
+      if node.data == value
+        previous_node.nil? ? @head = node.next : previous_node.next = node.next
+        # assumes the node will be GC-ed after this
+        # return the deleted node
+        return node
+      end
+      previous_node = node
+    } 
   end
 
   private
@@ -55,20 +65,3 @@ class LinkedList
       end
     end
 end
-
-# ============= fake test
-
-l = LinkedList.new 'test'
-
-100.times do |i|
-  l.add "test #{i}"
-end
-
-l.to_s
-
-puts
-
-result = l.find "test 37"
-
-puts "Let's find a node"
-puts result
